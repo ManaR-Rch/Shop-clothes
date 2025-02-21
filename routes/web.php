@@ -19,3 +19,6 @@ Route::get('/', function () {
 
 
 Route::resource('annonces', AnnonceController::class)->middleware('auth');
+Route::post('/annonces/{annonce}/commentaires', [CommentaireController::class, 'store'])
+    ->middleware('auth')
+    ->name('commentaires.store');
